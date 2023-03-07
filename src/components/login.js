@@ -35,7 +35,7 @@ function Login({setToken}) {
 
     const handleSubmit = () => {
 
-        fetch('https://my-portfolio-application-sinatra.onrender.com/project/auth/register',{
+        fetch('',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
