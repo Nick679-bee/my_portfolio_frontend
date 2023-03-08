@@ -1,5 +1,5 @@
 import React from 'react'
-
+// import {MdOutlineDeleteSweep} from "react-icons/md"
 
 export default function ProjectCard({title,description,id, deleteProject}) {
 
@@ -18,4 +18,5 @@ export default function ProjectCard({title,description,id, deleteProject}) {
     </div>
   )
 }
+
 

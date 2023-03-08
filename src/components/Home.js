@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import icon from '../images/icon.png'
 import './Home.css'
 import HomeCard from './HomeCard'
 
@@ -9,7 +10,7 @@ function Home() {
 
 
   useEffect( ()=>{
-      fetch()
+      fetch("https://portfolio-app-backend-05g6.onrender.com")
       .then(res => res.json())
       .then(data =>{
           console.log(data)
@@ -19,7 +20,7 @@ function Home() {
 
 
   function deleteProject(id){
-      fetch(`${id}`,{
+      fetch(`https://portfolio-app-backend-05g6.onrender.com/projects/destroy/${id}`,{
         method: "DELETE"
       })
       .then(()=>{
@@ -36,7 +37,7 @@ function Home() {
 
       <div className='home'>
         <div className='card-avatar'>
-            
+            <img src={icon} alt="Avatar" className='home-img' width={100}/>
             <div class="container">
                 <h4><b>John Doe</b></h4>
                 <p>Software Engineer</p>
@@ -46,19 +47,19 @@ function Home() {
             <div className="r-container">
                     <div className="r-left">
                     <p className="r-title">Check out what others are working on to get inspiration to be innovative...</p>
-
+                    
                  </div>
             </div>
 
             <div className="r2-container">
-                <div className="r-right"></div>
+                <div className="r-right"></div>    
                 <div className="flex-container">
-
+                   
                     {profile.map((value)=><HomeCard title={value.title} description={value.description} key={value.id} id={value.id} deleteProject={deleteProject}/>)}
 
                 </div>
             </div>
-        </div>
+        </div>        
       </div>
     </div>
   )
